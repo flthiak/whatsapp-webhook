@@ -1,7 +1,7 @@
 export default function handler(req, res) {
   // Verification (GET)
   if (req.method === 'GET') {
-    const VERIFY_TOKEN = 'my_super_secret_token_123'; // Use the same token you put in Meta
+    const VERIFY_TOKEN = 'everClear.webhook'; // <-- must match exactly what you enter in Meta
 
     const mode = req.query['hub.mode'];
     const token = req.query['hub.verify_token'];
@@ -16,7 +16,6 @@ export default function handler(req, res) {
 
   // Handle incoming events (POST)
   else if (req.method === 'POST') {
-    console.log('Webhook event:', req.body);
     res.status(200).send('EVENT_RECEIVED');
   }
 
